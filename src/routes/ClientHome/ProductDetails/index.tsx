@@ -28,6 +28,7 @@ export default function ProductDetails(){
 
     function handleBuyClick(){
       if(product){
+        cartService.increaseItem(product.id)
         cartService.addProduct(product);
         navigate("/cart")
       }
