@@ -11,7 +11,6 @@ export function PrivateRoute({ children, roles =[] }: Props) {
     if (!authService.isAuthenticated()) {
         return <Navigate to="/login" />;
     }
-    
     if (!authService.hasAnyRoles(roles)) {
         return <Navigate to="/catalog" />;
     }
