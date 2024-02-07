@@ -21,6 +21,7 @@ export default function Catalog() {
       page: 0,
       name: ""
   });
+
   useEffect(() => {
       //console.log("TESTE", hasAnyRoles(['ROLE_CLIENT']))
 
@@ -56,10 +57,8 @@ export default function Catalog() {
         </div>
         
         {
-          !isLastPage &&
-          <div onClick={handleNextPageClick}>
-            <ButtonNextPage />
-          </div>
+          !isLastPage && 
+          <ButtonNextPage onNextPage={handleNextPageClick}/>
         }
       </section>
     </main>
