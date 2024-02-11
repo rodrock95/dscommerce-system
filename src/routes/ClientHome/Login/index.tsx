@@ -35,7 +35,8 @@ export default function Login(){
 
     function handleSubmit(event:any){
         event.preventDefault();
-        authService.loginRequest({username: formData.username.value, password: formData.password.value})
+        console.log(forms.toValues(formData))
+        authService.loginRequest(forms.toValues(formData))
             .then(response => {
                 authService.saveAccessToken(response.data.access_token);
                 setContextTokenPayload(authService.getAccessTokenPayload())
@@ -65,7 +66,7 @@ export default function Login(){
                                     {...formData.username}
                                     className="dsc-form-control" 
                                     onChange={handleInputChange}
-                                    />
+                                />
                                 <div className="dsc-form-error"></div>
                             </div>
                             <div>
