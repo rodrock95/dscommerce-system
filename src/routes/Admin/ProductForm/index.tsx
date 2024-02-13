@@ -46,8 +46,8 @@ export default function ProductForm(){
         //const obj = forms.validate(formData, "price");
         //console.log(obj);
 
-        const result = forms.toDirty(formData, "price");
-        console.log(result);
+        //const result = forms.toDirty(formData, "price");
+        //console.log(result);
 
         if(isEditing){
             productService.findById(Number(params.productId))
@@ -61,16 +61,13 @@ export default function ProductForm(){
     }, [])
 
     function handleInputChange(event: any){
-        const value = event.target.value;
         const name = event.target.name;
-        const dataUpdate = forms.update(formData, name, value);
-        const dataValidated = forms.validate(dataUpdate, name)
-        setFormData(dataValidated);
+        const value = event.target.value;
+        setFormData(forms.updateAndValidate(formData, name, value))
     }
 
     function handleTurnDirty(name: string){
-        const newFormData = forms.toDirty(formData, name);
-        setFormData(newFormData);
+        setFormData(forms.dirtyAndValidate(formData, name))
     }
 
     return(
