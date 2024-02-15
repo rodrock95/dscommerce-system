@@ -118,16 +118,23 @@ export default function ProductForm(){
             setFormData(formDataValidate)
             return;
         }
+        //UPDATE PRODUCT
         const requestBody = forms.toValues(formData);
+
         if(isEditing){
             requestBody.id = params.productId;
         }
-        //console.log(requestBody)
-        productService.updateRequest(requestBody)
+
+        const request = isEditing 
+            ? productService.updateRequest(requestBody)
+            : productService.insertRequest(requestBody)
+
+        request
             .then(() => {
                 navigate("/admin/products")
-            })
+            });
     }
+
       
     return(
         <main>
