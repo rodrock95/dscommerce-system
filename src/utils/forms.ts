@@ -53,10 +53,13 @@ export function toDirtyAll(inputs: any){
 export function validateAll(inputs: any){
     const newInputs: any = {};
     for(const name in inputs){
+        //VALIDAR SE EXISTIR UM CAMPO COM VALIDATION: 
+        //NOME, PRECO, CATEGORIAS E DESCRICAO
         if(inputs[name].validation){
             const isInvalid = !inputs[name].validation(inputs[name].value)
             newInputs[name] = {...inputs[name], invalid: isInvalid.toString()}
         }
+        //IMGURL
         else{
             newInputs[name] = {...inputs[name]}
         }

@@ -1,5 +1,5 @@
 import "./styles.css"
-import { Link, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
 import FormInput from "../../../components/FormInput";
 import * as forms from "../../../utils/forms"
@@ -13,6 +13,8 @@ import { selectStyles } from "../../../utils/select";
 export default function ProductForm(){
 
     const params = useParams();
+
+    const navigate = useNavigate();
 
     const isEditing = params.productId !== 'create'
 
@@ -31,9 +33,8 @@ export default function ProductForm(){
             },
             message: "Favor informar um nome de 3 a 80 caracteres"
         },
-
         price: {
-            value: " ",
+            value: "",
             id: "price",
             name: "price",
             type: "number",
@@ -43,7 +44,6 @@ export default function ProductForm(){
             },
             message: "Favor informar um valor positivo"
         },
-
         imgUrl: {
             value: "",
             id: "imgUrl",
@@ -113,12 +113,20 @@ export default function ProductForm(){
 
     function handleSubmit(event:any){
         event.preventDefault();
-        //console.log(forms.toValues(formData))
         const formDataValidate = forms.dirtyAndValidateAll(formData);
         if(forms.hasAnyInvalid(formDataValidate)){
             setFormData(formDataValidate)
             return;
         }
+        const requestBody = forms.toValues(formData);
+        if(isEditing){
+            requestBody.id = params.productId;
+        }
+        //console.log(requestBody)
+        productService.updateRequest(requestBody)
+            .then(() => {
+                navigate("/admin/products")
+            })
     }
       
     return(
