@@ -116,6 +116,7 @@ export default function ProductForm(){
         const formDataValidate = forms.dirtyAndValidateAll(formData);
         if(forms.hasAnyInvalid(formDataValidate)){
             setFormData(formDataValidate)
+            //INTERROMPE O ENVIO DO FORMULARIO
             return;
         }
         //UPDATE PRODUCT
@@ -132,6 +133,11 @@ export default function ProductForm(){
         request
             .then(() => {
                 navigate("/admin/products")
+            })
+            .catch(error => {
+                const newInputs = forms.setBackendErrors(formData, error.response.data.errors);
+                //console.log(error.response.data.errors);
+                setFormData(newInputs);
             });
     }
 
