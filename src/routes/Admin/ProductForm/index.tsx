@@ -130,6 +130,9 @@ export default function ProductForm(){
             ? productService.updateRequest(requestBody)
             : productService.insertRequest(requestBody)
 
+        //NO CONSOLE RETORNA UM 201 QUANDO ADICIONAMOS UM NOVO PRODUTO
+        console.log(request);
+
         request
             .then(() => {
                 navigate("/admin/products")
@@ -141,7 +144,6 @@ export default function ProductForm(){
             });
     }
 
-      
     return(
         <main>
             <section id="product-form-section" className="dsc-container">
