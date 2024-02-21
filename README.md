@@ -6,7 +6,7 @@ Segue abaixo o design Figma do projeto:
 
 https://www.figma.com/file/ZrGNVNG0kZL6txDv4G8P6s/DSCommerce
 
-Para aacessar o documento de requisitos, acesse:
+Para acessar o documento de requisitos, acesse:
 
 [Documento de requisitos DSCommerce.pdf](https://github.com/rodrock95/dscommerce-frontend/files/14361226/Documento.de.requisitos.DSCommerce.pdf)
 
