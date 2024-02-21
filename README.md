@@ -37,7 +37,7 @@ Os dados de um pedido são: instante em que ele foi salvo, status, e uma lista d
 Este é o modelo conceitual do sistema DSCommerce. Considerações:
 
 - Cada item de pedido (OrderItem) corresponde a um produto no pedido, com uma quantidade. Sendo que o preço também é armazenado no item de pedido por questões de histórico (se o preço do produto mudar no futuro, o preço do item de pedido continua registrado com o preço real que foi vendido na época).
-- 
+ 
 - Um usuário pode ter um ou mais "roles", que são os perfis de acesso deste usuário no sistema (client, admin).
 
 ![modeloDSCommerce](https://github.com/rodrock95/dscommerce-frontend/assets/79290866/8e338f18-c4af-4b79-8747-b4fd473e721a)
