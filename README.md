@@ -1,6 +1,6 @@
 # Sistema DSCommerce
 
-O projeto de estudos DSCommerce, abreviação de "Digital Store" Commerce é um sistema Full Stack desenvolvido durante o curso ReactJS Professional utilizando as linguagens Java e TypeScript em conjunto com os frameworks Spring Boot e ReactJS. 
+O projeto de estudos DSCommerce, abreviação de "Digital Store" Commerce é um sistema Full Stack desenvolvido durante o curso ReactJS Professional da escola DevSuperior utilizando as linguagens Java e TypeScript em conjunto com os frameworks Spring Boot e ReactJS. 
 
 Segue abaixo o design Figma do projeto:
 
